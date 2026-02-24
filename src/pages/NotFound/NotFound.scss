@@ -1,0 +1,54 @@
+/* NotFound.scss */
+
+.notfound {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  /* évite tout dépassement local (sans toucher au body global) */
+  overflow-x: hidden; /* si pas supporté, mets hidden */
+}
+
+.notfound__content {
+  min-height: calc(100vh - 200px); /* ajuste si ton header/footer changent */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  text-align: center;
+}
+
+.notfound__code {
+  color: #ff6060;
+  font-weight: 700;
+  line-height: 1;
+
+  /* responsive propre : jamais énorme, jamais minuscule */
+  font-size: clamp(96px, 18vw, 288px);
+  margin: 0;
+}
+
+.notfound__text {
+  color: #ff6060;
+  font-weight: 500;
+  font-size: clamp(16px, 4vw, 36px);
+  margin: 0;
+}
+
+.notfound__link {
+  color: #000;
+  font-size: 18px;
+  text-decoration: underline;
+  margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+  .notfound {
+    padding: 0 16px;
+  }
+  .notfound__link {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,39 @@
+.about {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.about__content {
+  margin: 30px auto 40px;
+  max-width: 1024px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Si tu actives la banner plus tard */
+.about__banner {
+  margin-top: 20px;
+  height: 223px;
+  border-radius: 25px;
+  background: #000;
+  opacity: 0.1; /* placeholder */
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 0 16px;
+  }
+
+  .about__content {
+    gap: 20px;
+    margin: 20px auto 30px;
+  }
+
+  .about__banner {
+    height: 111px;
+    border-radius: 10px;
+  }
+}

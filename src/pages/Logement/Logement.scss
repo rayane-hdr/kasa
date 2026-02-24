@@ -1,0 +1,213 @@
+/* Logement.scss */
+
+.logement {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 20px 20px 0;
+  box-sizing: border-box;
+}
+
+/* Empêche un enfant flex/grille de forcer un overflow */
+.logement * {
+  box-sizing: border-box;
+}
+
+/* ===== Header (title/location/tags | host/rating) ===== */
+
+.logement__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 18px;
+  align-items: flex-start;
+
+  /* important : si un contenu est trop long, il ne doit pas forcer le débordement */
+  min-width: 0;
+}
+
+.logement__left {
+  flex: 1;
+  min-width: 0; /* très important en flex */
+}
+
+.logement__title {
+  margin: 0;
+  color: #ff6060;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1.2;
+
+  /* si un titre est super long, on évite l’overflow */
+  overflow-wrap: anywhere;
+}
+
+.logement__location {
+  margin: 8px 0 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* ---- Tags ---- */
+.logement__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.tag {
+  background: #ff6060;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* ---- Right side ---- */
+.logement__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+
+  /* ⚠️ évite que le bloc droite force un scroll horizontal */
+  flex-shrink: 0;
+  min-width: 180px;
+  max-width: 240px;
+}
+
+/* ---- Host ---- */
+.logement__host {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logement__hostName {
+  margin: 0;
+  text-align: right;
+  font-size: 18px;
+  font-weight: 500;
+  color: #ff6060;
+  line-height: 1.2;
+
+  /* limite largeur, sinon un nom peut pousser */
+  max-width: 110px;
+  overflow-wrap: anywhere;
+}
+
+.logement__hostPicture {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* ---- Rating (étoiles) ---- */
+.logement__rating {
+  display: flex;
+  gap: 10px;
+}
+
+.star {
+  font-size: 24px;
+  line-height: 1;
+  color: #e3e3e3;
+}
+
+.star--active {
+  color: #ff6060;
+}
+
+/* ===== Collapses ===== */
+
+.logement__collapses {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 76px;
+  margin-top: 28px;
+  margin-bottom: 40px;
+
+  /* anti-overflow sur grilles */
+  min-width: 0;
+}
+
+/* Optionnel : style liste équipements */
+.logement__collapses ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.logement__collapses li {
+  margin: 6px 0;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 1024px) {
+  .logement__title {
+    font-size: 28px;
+  }
+
+  .logement__location {
+    font-size: 16px;
+  }
+
+  .logement__collapses {
+    gap: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .logement {
+    padding: 0 16px;
+  }
+
+  .logement__header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .logement__right {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logement__hostName {
+    font-size: 12px;
+    max-width: 80px;
+  }
+
+  .logement__hostPicture {
+    width: 32px;
+    height: 32px;
+  }
+
+  .logement__rating {
+    gap: 6px;
+  }
+
+  .star {
+    font-size: 18px;
+  }
+
+  .logement__collapses {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .tag {
+    padding: 5px 12px;
+    font-size: 10px;
+  }
+}

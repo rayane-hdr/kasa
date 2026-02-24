@@ -1,0 +1,58 @@
+.collapse {
+  width: 100%;
+}
+
+.collapse__header {
+  background: #ff6060;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.collapse__title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* bouton */
+.collapse__toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #fff;        /* ✅ ça fixe le “noir” */
+  line-height: 0;     /* ✅ évite des décalages bizarres */
+}
+
+/* icône svg */
+.collapse__icon {
+  display: block;     /* ✅ pas inline -> pas de box chelou */
+  transition: transform 0.25s ease;
+  transform-origin: 50% 50%;
+}
+
+/* rotation propre sur elle-même */
+.collapse__icon--open {
+  transform: rotate(180deg);
+}
+
+/* contenu */
+.collapse__content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background: #f7f7f7;
+  border-radius: 0 0 10px 10px;
+}
+
+.collapse__content--open {
+  max-height: 500px;
+}
+
+.collapse__inner {
+  padding: 20px;
+}

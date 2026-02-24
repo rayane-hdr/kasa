@@ -1,0 +1,61 @@
+/* Home.scss */
+
+/* Sécurité anti-débordement SANS cacher le contenu global */
+.home {
+  width: 100%;
+}
+
+/* container: même largeur que la maquette (1240) + padding latéral */
+.home__container {
+  width: min(1240px, 100%);
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Wrap gris: même largeur que le container (donc la bannière) */
+.home__gridWrap {
+  background: #f6f6f6;
+  border-radius: 25px;
+  padding: 50px;
+  margin-top: 43px;
+  box-sizing: border-box;
+}
+
+/* Grille */
+.home__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 50px;
+
+  /* évite que du contenu force un overflow */
+  min-width: 0;
+}
+
+/* Anti-scroll horizontal (cause typique = img/link inline) */
+.home__grid * {
+  min-width: 0;
+}
+
+.home img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .home__container {
+    padding: 0 20px;
+  }
+
+  .home__gridWrap {
+    background: transparent;
+    padding: 0;
+    margin-top: 22px;
+  }
+
+  .home__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
